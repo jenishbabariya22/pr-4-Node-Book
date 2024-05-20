@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+  
+        
+ <center>
+    
+    <h1>View RECORD</h1>
+    <table border="3" class="table w-50 table-striped table-hover">
+        <tr>
+            <td>SR.NO</td>
+            <td>BOOK NAME</td>
+            <td>BOOK PRICE </td>
+            <td>BOOK PAGES</td>
+            <td>BOOK AUTHOR</td>
+            <td>ACTION</td>
+        </tr>
+
+        <%record.map((val,i)=>{i=i+1%>
+            <tr>
+                <td>
+                    <%=i%>
+                </td>
+                <td>
+                    <%=val.book %>
+                </td>
+                <td>
+                    $<%=val.price%>
+                </td>
+                <td>
+                    <%=val.pages%>
+                </td>
+                <td>
+                    <%=val.author%>
+                </td>
+                <td>
+                    <a href="/deleteuser?id=<%= val.id%>"> DELETE </a>&nbsp; || 
+                    <a href="/edituser?id=<%= val.id%>"> &nbsp;&nbsp;EDIT </a>
+                </td>
+            </tr>
+            <%})%>
+    </table>
+    <br>
+    <a href="/form">Add Record</a>
+</center>
+     
+</body>
+</html>
